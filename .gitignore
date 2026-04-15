@@ -36,3 +36,6 @@ Thumbs.db
 
 # Bases de datos locales (si aplica)
 *.sqlite
+
+seeders/
+backups/
