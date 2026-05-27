@@ -22,9 +22,9 @@ const AvatarUploader = ({ currentPhoto, onPhotoChange, showSnackbar }) => {
 
         try {
             setUploading(true)
-            const response = await axios.post('http://localhost:3000/users/upload-avatar', formData, { headers: { "Content-Type": "multipart/form-data" } })
+            const response = await axios.post('/users/upload-avatar', formData, { headers: { "Content-Type": "multipart/form-data" } })
 
-            const finalUrl = `http://localhost:3000${response.data.url.avatarUrl}`
+            const finalUrl = `${import.meta.env.VITE_API_URL}${response.data.url.avatarUrl}`
             onPhotoChange(finalUrl)  //Pasa la URL de la fto al perfil
 
             const user = JSON.parse(localStorage.getItem('user'))
