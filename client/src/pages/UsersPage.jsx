@@ -46,9 +46,9 @@ const UsersPage = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/users/profile')
+                const response = await axios.get('/users/profile')
                 const user = response.data?.data?.user
-                if (user?.photo) setAvatarUrl(`http://localhost:3000${user.photo}`)
+                if (user?.photo) setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
                 if (user?.id) setCurrentUserId(user.id)
             } catch (err) {
                 console.error('Error al obtener la foto de perfil:', err)
@@ -57,7 +57,7 @@ const UsersPage = () => {
 
         const fetchFirstAdminId = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/admin/first-admin')
+                const response = await axios.get('/admin/first-admin')
                 setFirstAdminId(response.data.firstAdminId)
             } catch (err) {
                 console.error('Error al obtener el ID del primer admin:', err)
@@ -91,7 +91,7 @@ const UsersPage = () => {
                 params.append('role', roleFilter)
             }
 
-            const response = await axios.get(`http://localhost:3000/admin/users?${params}`)
+            const response = await axios.get(`/admin/users?${params}`)
             setUsers(response.data.data.users)
             setPagination(response.data.data.pagination)
 
@@ -113,7 +113,7 @@ const UsersPage = () => {
     const updateUserStatus = async (userId, userStateId, action) => {
         setActionLoading(true)
         try {
-            const response = await axios.patch(`http://localhost:3000/admin/users/${userId}/status`, { userStateId, action } )
+            const response = await axios.patch(`/admin/users/${userId}/status`, { userStateId, action } )
             setSuccess(response.data.message)
             fetchUsers(pagination.currentPage)
 
@@ -127,7 +127,7 @@ const UsersPage = () => {
     const deleteUser = async (userId) => {
         setActionLoading(true)
         try {
-            const response = await axios.delete(`http://localhost:3000/admin/users/${userId}`)
+            const response = await axios.delete(`/admin/users/${userId}`)
             setSuccess(response.data.message)
             fetchUsers(pagination.currentPage)
 
