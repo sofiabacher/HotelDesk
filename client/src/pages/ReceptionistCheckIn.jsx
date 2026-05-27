@@ -20,9 +20,9 @@ const ReceptionistCheckIn = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/users/profile')
+                const response = await axios.get('/users/profile')
                 const user = response.data?.data?.user
-                if (user?.photo) setAvatarUrl(`http://localhost:3000${user.photo}`)
+                if (user?.photo) setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
             } catch (err) {
                 console.error('Error al obtener la foto de perfil:', err)
             }
@@ -42,7 +42,7 @@ const ReceptionistCheckIn = () => {
     const fetchReservations = async () => {
         try {
             setLoading(true)
-            const response = await axios.get('http://localhost:3000/receptionist/checkins')
+            const response = await axios.get('/receptionist/checkins')
 
             if (response.data.success) {
                 setReservations(response.data.data.checkIns)
@@ -99,7 +99,7 @@ const ReceptionistCheckIn = () => {
 
     const handleCheckIn = async (reservation) => {
         try {
-            const response = await axios.post(`http://localhost:3000/receptionist/checkin/${reservation.bookingId}`)
+            const response = await axios.post(`/receptionist/checkin/${reservation.bookingId}`)
   
             if (response.data.success) {    // Actualizar la reserva localmente
                 setReservations(prev =>
