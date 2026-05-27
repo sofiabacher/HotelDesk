@@ -54,7 +54,7 @@ const CleaningDashboard = () => {
     const handleMarkAsAvailable = async (roomId) => {
         try {
             setProcessingRoom(roomId)
-            const response = await axios.put(`http://localhost:3000/cleaning/rooms/${roomId}/available`)
+            const response = await axios.put(`/cleaning/rooms/${roomId}/available`)
 
             if (response.data.success) {
                 setRooms(prev => prev.filter(room => room.id !== roomId))   // Remover la habitación de la lista
