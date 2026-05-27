@@ -4,20 +4,22 @@ const { email } = require('../config')
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 const transporter = {
-    try {
-        const result = await resend.emails.send({
-            from: from || email.from,
-            to,
-            subject,
-            html
-        })
+    sendMail: async ({ to, subject, html, from }) => {
+        try {
+            const result = await resend.emails.send({
+                from: from || email.from,
+                to,
+                subject,
+                html
+            })
 
-        console.log("RESEND OK:", result)
-        return result
+            console.log("RESEND OK:", result)
+            return result
 
-    } catch (err) {
-        console.log("RESEND ERROR:", err)
-        throw err
+        } catch (err) {
+            console.log("RESEND ERROR:", err)
+            throw err
+        }
     }
 }
 
