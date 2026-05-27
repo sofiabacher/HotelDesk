@@ -38,7 +38,7 @@ const FormRegister = ({ showSnackbar, handleChangeAction }) => {
         if (!validate()) return
 
         try {
-            const response = await axios.post('http://localhost:3000/auth/register', { name, lastName, email, password })
+            const response = await axios.post('/auth/register', { name, lastName, email, password })
             showSnackbar(response.data.message, "success")
             if (response.data.success) {
                 setTimeout(() => {
