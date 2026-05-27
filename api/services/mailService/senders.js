@@ -29,6 +29,8 @@ async function sendActivationEmail(user, token) {  //Mail de activación de cuen
             `${register.errors.activationMailFailed} a ${user.email}: ${error.message}`, 
             LOG_ACTIONS.MAIL_ERROR.criticity 
         )
+
+        throw error
     }
 }
 
@@ -53,6 +55,8 @@ async function sendRecoveryEmail(user, token) {  //Mail recuperación de contras
             `${recovery.errors.recoveryMailFailed} a ${user.email}: ${error.message}`, 
             LOG_ACTIONS.MAIL_ERROR.criticity 
         )
+
+        throw error
     }
 }
 
@@ -76,6 +80,8 @@ async function sendPasswordUpdateNotice(user) {  //Mail de aviso de modificació
             `${update.errors.updatePasswordMailFailed} a ${user.email}: ${error.message}`, 
             LOG_ACTIONS.MAIL_ERROR.criticity 
         )
+
+        throw error
     }
 }
 
@@ -99,6 +105,8 @@ async function sendPaymentConfirmationEmail(userEmail, bookingDetails) {  //Mail
             `${payment.errors.paymentConfirmationEmailFailed} a ${userEmail} - Reserva: ${bookingDetails.confirmationCode}: ${error.message}`,
             LOG_ACTIONS.MAIL_ERROR.criticity
         )
+
+        throw error
     }
 }
 
@@ -122,6 +130,8 @@ async function sendCancellationEmail(userEmail, bookingDetails) {   //Mail de ca
             `${bookingMessages.errors.emailCancelled} a ${userEmail} - Reserva: ${bookingDetails.confirmationCode}: ${error.message}`,
             LOG_ACTIONS.MAIL_ERROR.criticity
         )
+
+        throw error
     }
 }
 
