@@ -47,7 +47,8 @@ const LoginSignUp = () => {
         }
 
         try {
-            const response = await axios.post('https://hoteldesk.onrender.com/auth/recover-password', { email })
+            const response = await axios.post('/auth/recover-password', { email })
+            console.log("API URL:", import.meta.env.VITE_API_URL)
             showSnackbar(response.data.message, "success")
             handleChangeAction("Iniciar sesion")
 
