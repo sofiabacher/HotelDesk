@@ -45,7 +45,7 @@ const FormLogin = ({ showSnackbar, handleChangeAction }) => {
         if (!validate()) return
 
         try {
-            const response = await axios.post('http://localhost:3000/auth/login', { email, password })
+            const response = await axios.post('/auth/login', { email, password })
             const token = response.data.data.token
             localStorage.setItem('token', token)
             showSnackbar(response.data.message, "success")
