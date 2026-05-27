@@ -20,9 +20,9 @@ const AssignRole = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/users/profile')
+                const response = await axios.get('/users/profile')
                 const user = response.data?.data?.user
-                if (user?.photo) setAvatarUrl(`http://localhost:3000${user.photo}`)
+                if (user?.photo) setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
             } catch (err) {
                 console.error('Error al obtener la foto de perfil:', err)
             }
@@ -43,7 +43,7 @@ const AssignRole = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/roles/users')
+            const response = await axios.get('/roles/users')
             setUsers(response.data.data || [])
         } catch (err) {
             showSnackbar('Error al cargar los usuarios', 'error')
@@ -52,7 +52,7 @@ const AssignRole = () => {
 
     const fetchRoles = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/roles')
+            const response = await axios.get('/roles')
             setRoles(response.data.data || [])
         } catch (err) {
             showSnackbar('Error al cargar los roles', 'error')
@@ -110,7 +110,7 @@ const AssignRole = () => {
 
         try {
             setProcessing(true)
-            await axios.post('http://localhost:3000/roles/assign', {
+            await axios.post('/roles/assign', {
                 userId: selectedUser,
                 roleId: selectedRole
             })
@@ -155,7 +155,7 @@ const AssignRole = () => {
 
         try {
             setProcessing(true)
-            await axios.post('http://localhost:3000/roles/remove', {
+            await axios.post('/roles/remove', {
                 userId: user.id,
                 roleId: role.id
             })
