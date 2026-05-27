@@ -24,9 +24,9 @@ const RoleManagement = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/users/profile')
+                const response = await axios.get('/users/profile')
                 const user = response.data?.data?.user
-                if (user?.photo) setAvatarUrl(`http://localhost:3000${user.photo}`)
+                if (user?.photo) setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
             } catch (err) {
                 console.error('Error al obtener la foto de perfil:', err)
             }
@@ -50,8 +50,8 @@ const RoleManagement = () => {
             setError('')
 
             const [rolesResponse, permissionsResponse] = await Promise.all([
-                axios.get('http://localhost:3000/roles'),
-                axios.get('http://localhost:3000/permissions')
+                axios.get('/roles'),
+                axios.get('/permissions')
             ])
 
             setRoles(rolesResponse.data.data || [])
@@ -89,10 +89,10 @@ const RoleManagement = () => {
     const handleSaveRole = async (roleData) => {
         try {
             if (editingRole) {
-                await axios.put(`http://localhost:3000/roles/${editingRole.id}`, roleData)
+                await axios.put(`/roles/${editingRole.id}`, roleData)
                 showSnackbar('Rol actualizado correctamente')
             } else {
-                await axios.post('http://localhost:3000/roles', roleData)
+                await axios.post('/roles', roleData)
                 showSnackbar('Rol creado correctamente')
             }
 
@@ -117,7 +117,7 @@ const RoleManagement = () => {
         setConfirmDialog({ open: false, role: null, message: '' })
 
         try {
-            await axios.delete(`http://localhost:3000/roles/${role.id}`)
+            await axios.delete(`/roles/${role.id}`)
             showSnackbar('Rol eliminado correctamente')
             fetchRoles()
 
