@@ -15,7 +15,7 @@ function generateLoginToken(user) {
             primaryRole
         },
         jwtConfig.secret,
-        { expiresIn: jwtConfig.expiresIn }
+        { expiresIn: jwtConfig.expiresIn || "1h" }
     )
 }
 
@@ -33,7 +33,7 @@ function generateToken(userId) {
     return jwt.sign(
         { userId },
         jwtConfig.tokenSecret,
-        { expiresIn: jwtConfig.emailExpiresIn }
+        { expiresIn: jwtConfig.emailExpiresIn || "1h" }
     )
 } 
 
