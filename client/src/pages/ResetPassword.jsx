@@ -47,7 +47,7 @@ const ResetPassword = () => {
 
         const validateToken = async () => {
             try {
-                await axios.post('http://localhost:3000/auth/validate-reset-token', { token })
+                await axios.post('/auth/validate-reset-token', { token })
                 setTokenValid(true)
                 setMessage("Ingrese su nueva contraseña")
                 setIsLoading(false)
@@ -94,7 +94,7 @@ const ResetPassword = () => {
 
         setIsLoading(true)
         try {
-            const response = await axios.post('http://localhost:3000/auth/reset-password', { token, password, confirmPassword })
+            const response = await axios.post('/auth/reset-password', { token, password, confirmPassword })
             showSnackbar(response.data.message, 'success')
             setMessage(response.data.message)
             setIsSuccess(true)
@@ -120,7 +120,7 @@ const ResetPassword = () => {
         setIsLoading(true)
 
         try {
-            const response = await axios.post('http://localhost:3000/auth/recover-password', { email })
+            const response = await axios.post('/auth/recover-password', { email })
             showSnackbar(response.data.message, "success")
             setMessage(response.data.message)
             setShowResend(false)
