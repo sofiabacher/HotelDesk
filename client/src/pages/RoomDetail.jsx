@@ -41,7 +41,7 @@ const RoomDetail = () => {
         setLoading(true)
         setError(null)
 
-        const response = await axios.get(`http://localhost:3000/rooms/${id}`)
+        const response = await axios.get(`/rooms/${id}`)
 
         const foundRoom = response.data?.data
 
@@ -51,7 +51,7 @@ const RoomDetail = () => {
             title: foundRoom.name || 'Habitación',
             description: foundRoom.description || 'Habitación cómoda y moderna',
             price: foundRoom.price ? `$${foundRoom.price}` : '$100',
-            images: foundRoom.image ? [foundRoom.image] : [`http://localhost:3000/uploads/rooms/default.jpg`],
+            images: foundRoom.image ? [foundRoom.image] : [`/uploads/rooms/default.jpg`],
             capacity: foundRoom.capacity || 2,
             size: foundRoom.size || '30m²',
             bedType: foundRoom.beds || 'Cama King Size',
@@ -99,11 +99,11 @@ const RoomDetail = () => {
 
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/users/profile')
+        const response = await axios.get('/users/profile')
         const user = response.data?.data?.user
 
         if (user?.photo) {
-          setAvatarUrl(`http://localhost:3000${user.photo}`)
+          setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
         }
       } catch (error) {
         console.error('Error al obtener la foto de perfil: ', error)
