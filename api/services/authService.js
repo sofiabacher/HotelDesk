@@ -230,7 +230,10 @@ const recoverPasswordUser = async (email) => {
     }
 
     const token = generateToken(user.id)
-    
+    console.log("EMAIL_USER:", process.env.EMAIL_USER)
+    console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "OK" : "MISSING")
+    console.log("EMAIL_HOST:", process.env.EMAIL_HOST)
+
     try {
         await sendRecoveryEmail(user, token)
     } catch (err) {
