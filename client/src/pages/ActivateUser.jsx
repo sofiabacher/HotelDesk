@@ -39,7 +39,7 @@ const Activate = () => {
 
         const activateUser = async () => {
             try {
-                const response = await axios.post('http://localhost:3000/auth/activate', { token })
+                const response = await axios.post('/auth/activate', { token })
                 showSnackbar(response.data.message, 'success')
                 setMessage(response.data.message)
                 if (response.data.success) setTimeout(() => navigate('/login'), 3000)
@@ -67,7 +67,7 @@ const Activate = () => {
         setMessage("Reintentando activación...")
 
         try {
-            const response = await axios.post('http://localhost:3000/auth/resend-activation', { email })
+            const response = await axios.post('/auth/resend-activation', { email })
             showSnackbar(response.data.message, "success")
             setMessage(response.data.message)
             setShowResend(false)
