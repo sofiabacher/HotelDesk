@@ -45,7 +45,7 @@ const Booking = () => {
             const checkIn = checkInDate.toISOString().split('T')[0]
             const checkOut = checkOutDate.toISOString().split('T')[0]
 
-            const response = await axios.get('http://localhost:3000/booking/rooms/search', {
+            const response = await axios.get('/booking/rooms/search', {
                 params: {
                     checkInDate: checkIn,
                     checkOutDate: checkOut,
@@ -71,9 +71,9 @@ const Booking = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/users/profile')
+                const response = await axios.get('/users/profile')
                 const user = response.data?.data?.user
-                if (user?.photo) setAvatarUrl(`http://localhost:3000${user.photo}`)
+                if (user?.photo) setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
 
             } catch (err) {
                 console.error('Error al obtener la foto de perfil:', err)
@@ -125,7 +125,7 @@ const Booking = () => {
                 guests: guests
             }
 
-            const response = await axios.post('http://localhost:3000/booking/', bookingData)
+            const response = await axios.post('/booking/', bookingData)
 
             showSnackbar('¡Reserva confirmada exitosamente!', 'success')
             setTimeout(() => navigate('/my-reservations'), 1200)
@@ -207,7 +207,7 @@ const Booking = () => {
                                 )}
 
                                 {!roomsLoading && !roomsError && rooms.map(room => {
-                                    const imageUrl = `http://localhost:3000${room.images}`
+                                    const imageUrl = `https://hoteldesk.onrender.com${room.images}`
                                     const capacityDiff = room.capacity - guests
                                     const isExactMatch = capacityDiff === 0
                                     const hasExtraCapacity = capacityDiff > 0
