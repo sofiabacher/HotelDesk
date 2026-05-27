@@ -28,7 +28,7 @@ const CancellationDialog = ({ open, onClose, reservation, onSuccess, showSnackba
             setError(null)
 
             const token = localStorage.getItem('token')   //Revisa si el token existe antes de hacer la petición
-            const response = await axios.delete(`http://localhost:3000/booking/${reservation.id}`)
+            const response = await axios.delete(`/booking/${reservation.id}`)
 
             if (showSnackbar) {
                 showSnackbar('Reserva cancelada exitosamente', 'success')
