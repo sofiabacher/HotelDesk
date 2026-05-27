@@ -44,7 +44,7 @@ server.use('/receptionist', receptionistRoutes)  //Rutas de recepcionista
 server.use('/cleaning', cleaningRoutes)  //Rutas de personal de limpieza
 
 server.use(errorHandle)
-server.use('/uploads', express.static(path.join(__dirname, 'uploads'))) //Para que el navegador pueda acceder a la imagen mediante URL
+server.use('/uploads', express.static(path.join(__dirname, '../uploads'))) //Para que el navegador pueda acceder a la imagen mediante URL
 
 
 const initServer = async () => {
