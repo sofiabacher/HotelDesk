@@ -23,10 +23,10 @@ const Rooms = () => {
       const token = localStorage.getItem('token')
       if (token) {
         try {
-          const response = await axios.get('http://localhost:3000/users/profile')
+          const response = await axios.get('/users/profile')
           const user = response.data?.data?.user
           if (user?.photo) {
-            setAvatarUrl(`http://localhost:3000${user.photo}`)
+            setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
           }
         } catch (error) {
           console.error('Error al obtener la foto de perfil: ', error)
@@ -37,7 +37,7 @@ const Rooms = () => {
         setLoading(true)
         setError(null)
 
-        const response = await axios.get('http://localhost:3000/rooms/')
+        const response = await axios.get('/rooms/')
 
         let roomsData = []
         if (response.data && response.data.data && response.data.data.roomsByType) {
@@ -53,7 +53,7 @@ const Rooms = () => {
           title: room.name || 'Habitación',
           description: room.description || 'Habitación cómoda y moderna',
           price: room.price ? `$${room.price}` : '$100',
-          images: room.image ? [room.image] : [`http://localhost:3000/uploads/rooms/default.jpg`],
+          images: room.image ? [room.image] : [`/uploads/rooms/default.jpg`],
           capacity: room.capacity || 2,
           size: room.size || '30m²',
           bedType: room.beds || 'Cama King Size',
@@ -103,7 +103,7 @@ const Rooms = () => {
 
                 const fetchRooms = async () => {
                   try {
-                    const response = await axios.get('http://localhost:3000/rooms/')
+                    const response = await axios.get('/rooms/')
                     let roomsData = []
                     if (response.data && response.data.data && response.data.data.roomsByType) {
                       response.data.data.roomsByType.forEach(roomType => {
@@ -117,7 +117,7 @@ const Rooms = () => {
                       title: room.name || 'Habitación',
                       description: room.description || 'Habitación cómoda y moderna',
                       price: room.price ? `$${room.price}` : '$100',
-                      images: room.image ? [room.image] : [`http://localhost:3000/uploads/rooms/default.jpg`],
+                      images: room.image ? [room.image] : [`/uploads/rooms/default.jpg`],
                       capacity: room.capacity || 2,
                       size: room.size || '30m²',
                       bedType: room.beds || 'Cama King Size',
