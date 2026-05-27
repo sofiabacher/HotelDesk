@@ -26,7 +26,7 @@ const CleaningDashboard = () => {
     const fetchRooms = async () => {
         try {
             setLoading(true)
-            const response = await axios.get('http://localhost:3000/cleaning/rooms')
+            const response = await axios.get('/cleaning/rooms')
 
             if (response.data.success) {
                 setRooms(response.data.data.rooms)
@@ -47,7 +47,7 @@ const CleaningDashboard = () => {
         
         const savedAvatar = localStorage.getItem('userAvatar')
         if (savedAvatar) {
-            setAvatarUrl(`http://localhost:3000${savedAvatar}`)
+            setAvatarUrl(`https://hoteldesk.onrender.com${savedAvatar}`)
         }
     }, [])
 
