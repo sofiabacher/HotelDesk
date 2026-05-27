@@ -10,7 +10,14 @@ const sequelize = new Sequelize(
         host: db.host,
         dialect: db.dialect,
         logging: app.isDev ? console.log : false,   //mostrar las consultas SQL por consola (true = console.log)
-        timezone: '-03:00'     //Argentina
+        timezone: '-03:00',   //Argentina
+        
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+        }
     }
 );
 
