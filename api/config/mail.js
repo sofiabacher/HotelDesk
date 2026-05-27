@@ -2,9 +2,9 @@ const nodeMalier = require('nodemailer')
 const { email } = require('../config')
 
 const transporter = nodeMalier.createTransport({
-    host: email.host,
-    port: email.port,
-    secure: false,
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // 🔥 clave (SSL directo)
     auth: {
         user: email.user,
         pass: email.password
@@ -14,7 +14,7 @@ const transporter = nodeMalier.createTransport({
     }
 })
 
-transporter.verify(function(error, success) {
+transporter.verify((error, success) => {
     if (error) {
         console.log("SMTP ERROR:", error)
     } else {
