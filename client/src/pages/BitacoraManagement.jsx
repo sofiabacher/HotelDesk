@@ -20,9 +20,9 @@ const BitacoraManagement = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/users/profile')
+                const response = await axios.get('/users/profile')
                 const user = response.data?.data?.user
-                if (user?.photo) setAvatarUrl(`http://localhost:3000${user.photo}`)
+                if (user?.photo) setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
             } catch (err) {
                 console.error('Error al obtener la foto de perfil:', err)
             }
@@ -53,7 +53,7 @@ const BitacoraManagement = () => {
             if (startDate) { params.append('startDate', startDate.toISOString()) }
             if (endDate) { params.append('endDate', endDate.toISOString()) }
 
-            const response = await axios.get(`http://localhost:3000/log/admin/bitacora?${params.toString()}`)
+            const response = await axios.get(`/log/admin/bitacora?${params.toString()}`)
             const { logs: fetchedLogs, pagination: fetchedPagination, stats: fetchedStats } = response.data.data
 
             setLogs(fetchedLogs)
@@ -86,7 +86,7 @@ const BitacoraManagement = () => {
             if (startDate) { params.append('startDate', startDate.toISOString()) }
             if (endDate) { params.append('endDate', endDate.toISOString()) }
 
-            const response = await axios.get(`http://localhost:3000/log/admin/bitacora/download?${params.toString()}`, { responseType: 'blob' })
+            const response = await axios.get(`/log/admin/bitacora/download?${params.toString()}`, { responseType: 'blob' })
 
             const blob = new Blob([response.data], { type: 'text/csv;charset=utf-8;' })  //Crear link de descarga
             const url = window.URL.createObjectURL(blob)
