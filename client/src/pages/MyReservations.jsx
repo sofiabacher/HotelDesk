@@ -29,9 +29,9 @@ const MyReservations = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/users/profile')
+                const response = await axios.get('/users/profile')
                 const user = response.data?.data?.user
-                if (user?.photo) setAvatarUrl(`http://localhost:3000${user.photo}`)
+                if (user?.photo) setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
             } catch (err) {
                 console.error('Error al obtener la foto de perfil:', err)
             }
@@ -73,7 +73,7 @@ const MyReservations = () => {
     const fetchReservations = async () => {
         try {
             setLoading(true)
-            const response = await axios.get('http://localhost:3000/booking/my-bookings')
+            const response = await axios.get('/booking/my-bookings')
             setReservations(response.data.data?.bookings || [])
             setError(null)
 
@@ -181,7 +181,7 @@ const MyReservations = () => {
     
     const handleDownloadReceipt = async (reservation) => {
         try {
-            const response = await axios.get(`http://localhost:3000/booking/${reservation.id}/receipt`, {
+            const response = await axios.get(`/booking/${reservation.id}/receipt`, {
                 responseType: 'blob' //Importante para la descarga de archivos
             })
 
