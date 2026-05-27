@@ -7,7 +7,7 @@ const transporter = {
     sendMail: async ({ to, subject, html, from }) => {
         try {
             const result = await resend.emails.send({
-                from: from || email.from,
+                from: "HotelDesk <bacher.sofiaet36@gmail.com>",
                 to,
                 subject,
                 html
