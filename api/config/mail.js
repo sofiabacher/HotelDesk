@@ -1,5 +1,5 @@
 const nodeMalier = require('nodemailer')
-const { email } = require('.')
+const { email } = require('../config')
 
 const transporter = nodeMalier.createTransport({
     host: email.host,
