@@ -66,12 +66,12 @@ const UserProfile = () => {
         const fetchUserProfile = async () => {
             try {
                 console.log('Fetching user profile...')
-                const { data } = await axios.get('http://localhost:3000/users/profile')
+                const { data } = await axios.get('/users/profile')
                 const user = data.data.user
                 console.log('User data:', user)
                 console.log('User.Roles:', user.Roles)
 
-                const avatarUrl = user.photo ? `http://localhost:3000${user.photo}` : ""
+                const avatarUrl = user.photo ? `https://hoteldesk.onrender.com${user.photo}` : ""
 
                 setProfile({
                     name: user.name,
@@ -150,7 +150,7 @@ const UserProfile = () => {
         }
 
         try {
-            const response = await axios.put('http://localhost:3000/users/profile', payload)
+            const response = await axios.put('/users/profile', payload)
             showSnackbar(response.data.message, "success")
 
         } catch (error) {
@@ -164,7 +164,7 @@ const UserProfile = () => {
         if (!validatePassword(passwordData.password, passwordData.confirmPassword)) return
 
         try {
-            const response = await axios.put('http://localhost:3000/users/password', {
+            const response = await axios.put('/users/password', {
                 newPassword: passwordData.password,
                 confirmPassword: passwordData.confirmPassword
             })
@@ -187,7 +187,7 @@ const UserProfile = () => {
             const roleObject = roles.find(r => r.name === roleName)
             if (!roleObject) return showSnackbar("Rol inválido", "error")
 
-            const response = await axios.put('http://localhost:3000/users/switch-role', { roleId: roleObject.id })
+            const response = await axios.put('/users/switch-role', { roleId: roleObject.id })
             showSnackbar(response.data?.message, "success")
             setRolesModalOpen(false)
 
