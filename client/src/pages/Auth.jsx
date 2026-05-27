@@ -45,10 +45,9 @@ const LoginSignUp = () => {
             setError("Formato de correo inválido")
             return
         }
-
+        console.log("API URL:", import.meta.env.VITE_API_URL)
         try {
             const response = await axios.post('/auth/recover-password', { email })
-            console.log("API URL:", import.meta.env.VITE_API_URL)
             showSnackbar(response.data.message, "success")
             handleChangeAction("Iniciar sesion")
 
