@@ -229,12 +229,8 @@ const recoverPasswordUser = async (email) => {
         throw createError(loginMessages.errors.inactive, 403)
     }
 
-    try {
-        const token = generateToken(user.id)
-    } catch (err) {
-        throw createError("Error generando token de recuperación", 500)
-    }
-
+    const token = generateToken(user.id)
+    
     try {
         await sendRecoveryEmail(user, token)
     } catch (err) {
