@@ -22,6 +22,9 @@ const integrityRoutes = require('./routes/integrityRoutes')
 const receptionistRoutes = require('./routes/receptionistRoutes')
 const cleaningRoutes = require('./routes/cleaningRoutes')
 
+const createDemoUser = require('./seed/createDemoUser')
+createDemoUser()
+
 // Importar servicios
 const schedulerService = require('./services/schedulerService')
 
