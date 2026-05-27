@@ -1,12 +1,25 @@
 # 🏨 HotelDesk - Sistema de Gestión Hotelera
 
-HotelDesk es un sistema de gestión hotelera diseñado para la administración de usuarios, reservas y operaciones internas.
+HotelDesk es un sistema full stack de gestión hotelera diseñado para la administración de usuarios, reservas y operaciones internas.
+El proyecto cuenta con autenticación segura, control de acceso mediante JWT, envío de correos automáticos y una interfaz moderna para la administración del sistema.
 
-## 🚀 Tecnologías utilizadas
+## 🚀 Demo en producción
+
+ 👉 https://hotel-desk-ten.vercel.app
+
+## 🔑 Usuario demo
+
+Para facilitar la evaluación del sistema sin necesidad de registrarse ni depender de correos de activación:
+
+**Email:** demo@hoteldesk.com  
+**Password:** 123456
+
+## 🧰 Tecnologías utilizadas
 
 - Node.js
 - Express
 - MySQL
+- Sequelize (ORM)
 - API REST
 - Arquitectura MVC
 - React
@@ -15,18 +28,15 @@ HotelDesk es un sistema de gestión hotelera diseñado para la administración d
 
 - Gestión de usuarios
 - Gestión de reservas
+- Gestión de habitaciones
 - Operaciones CRUD
 - Autenticación y control de acceso mediante JWT
+- Envío de correos automáticos
 - Interfaz de usuario para la gestión del sistema
-
-## 🧠 Descripción técnica
-
-El proyecto está desarrollado como una API REST, aplicando el patrón de arquitectura MVC para organizar la lógica del sistema.  
-Se implementan operaciones CRUD para la gestión de datos y autenticación mediante JWT para el control de accesos.
 
 ## 🔐 Variables de entorno
 
-Para ejecutar el proyecto es necesario crear un archivo `.env` en la raíz del backend con las siguientes variables:
+Para ejecutar el proyecto localmente, es necesario crear un archivo `.env` en la raíz del backend con las siguientes variables:
 
 ```
 NODE_ENV=development
@@ -41,36 +51,49 @@ DB_FORCE_SYNC=false
 
 BCRYPT_SALT_ROUNDS=10
 JWT_SECRET=tu_clave_secreta
-JWT_ACTIVATION_SECRET=activacionToken
+JWT_ACTIVATION_SECRET=otra_clave_secreta
 JWT_EXPIRES_IN=24h
 JWT_EMAIL_EXPIRES_IN=1h
 
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=tu_email@gmail.com
-EMAIL_PASS=tu_app_password
-EMAIL_FROM="HotelDesk <no-reply@hoteldesk.com>"
+RESEND_API_KEY=tu_api_key_de_resend
+EMAIL_FROM=onboarding@resend.dev
 
 FRONTEND_URL=http://localhost:5173
 ```
 
 Asegurate de configurar estos valores según tu entorno local.
 
+En el frontend crear un archivo `.env` con:
+```
+VITE_API_URL=http://localhost:3000
+```
+
 ## ▶️ Cómo ejecutar el proyecto
 
 ### Backend
 
-1. Clonar el repositorio  
-2. Instalar dependencias: npm install
-3. Crear el archivo `.env` con las variables indicadas  
-4. Ejecutar el servidor: npm start
+1. Clonar el repositorio
+2. Ir a la carpeta del backend  
+3. Instalar dependencias: npm install
+4. Crear el archivo `.env` con las variables indicadas  
+5. Ejecutar el servidor: npm start
    
 ### Frontend
 
 1. Ir a la carpeta del frontend  
 2. Instalar dependencias: npm install
-3. Ejecutar la aplicación: npm run dev
+3. Crear el archivo `.env` con VITE_API_URL
+4. Ejecutar la aplicación: npm run dev
 
-## ⚠️ Estado del proyecto
+## 🌐 Estado del proyecto
 
-Proyecto académico en desarrollo con fines de aprendizaje.
+- Backend desplegado en Render
+- Frontend desplegado en Vercel
+- Base de datos desplegada en Railway
+- Sistema de correos configurado con Resend
+- Usuario demo disponible para evaluación
+- Proyecto académico funcional, desplegado en producción y listo para demostración, con posibilidad de futuras mejoras.
+
+## ⚠️ Nota
+
+Este proyecto fue desarrollado con fines académicos, aplicando buenas prácticas de desarrollo full stack, arquitectura por capas y despliegue en entornos de producción.
