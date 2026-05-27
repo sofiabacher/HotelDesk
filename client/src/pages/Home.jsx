@@ -29,11 +29,11 @@ const Home = () => {
 
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/users/profile')
+        const response = await axios.get('/users/profile')
         const user = response.data?.data?.user
 
         if (user?.photo) {
-          setAvatarUrl(`http://localhost:3000${user.photo}`)
+          setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
         }
 
       } catch (error) {
