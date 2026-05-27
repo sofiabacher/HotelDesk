@@ -238,6 +238,7 @@ const recoverPasswordUser = async (email) => {
     try {
         await sendRecoveryEmail(user, token)
     } catch (err) {
+        console.log("💥 MAIL REAL ERROR:", err)
         throw createError(recoveryMessages.errors.recoveryMailFailed, 500)
     }
 
