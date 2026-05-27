@@ -45,9 +45,9 @@ const RoomManagement = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/users/profile')
+        const response = await axios.get('/users/profile')
         const user = response.data?.data?.user
-        if (user?.photo) setAvatarUrl(`http://localhost:3000${user.photo}`)
+        if (user?.photo) setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
       } catch (err) {
         console.error('Error al obtener la foto de perfil:', err)
       }
@@ -83,7 +83,7 @@ const RoomManagement = () => {
     try {
       setLoading(true)
 
-      const response = await axios.get('http://localhost:3000/rooms/admin/all')
+      const response = await axios.get('/rooms/admin/all')
       setRooms(response.data.data || [])
       setFilteredRooms(response.data.data || [])
 
@@ -163,8 +163,8 @@ const RoomManagement = () => {
   const handleSaveRoom = async () => {
     try {
       const url = editingRoom
-        ? `http://localhost:3000/rooms/admin/${editingRoom.id}`
-        : 'http://localhost:3000/rooms/admin'
+        ? `/rooms/admin/${editingRoom.id}`
+        : '/rooms/admin'
 
       const method = editingRoom ? 'put' : 'post'
 
@@ -193,7 +193,7 @@ const RoomManagement = () => {
     setConfirmDialog({ open: false, roomId: null, roomName: '', message: '' })
 
     try {
-      await axios.delete(`http://localhost:3000/rooms/admin/${roomId}`)
+      await axios.delete(`/rooms/admin/${roomId}`)
       showSnackbar('Habitación marcada como fuera de servicio correctamente')
       fetchRooms()
 
