@@ -24,9 +24,9 @@ const PermissionManagement = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/users/profile')
+                const response = await axios.get('/users/profile')
                 const user = response.data?.data?.user
-                if (user?.photo) setAvatarUrl(`http://localhost:3000${user.photo}`)
+                if (user?.photo) setAvatarUrl(`https://hoteldesk.onrender.com0${user.photo}`)
             } catch (err) {
                 console.error('Error al obtener la foto de perfil:', err)
             }
@@ -48,7 +48,7 @@ const PermissionManagement = () => {
             setLoading(true)
             setError('')
 
-            const response = await axios.get('http://localhost:3000/permissions')
+            const response = await axios.get('/permissions')
             setPermissions(response.data.data || [])
 
         } catch (err) {
