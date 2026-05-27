@@ -169,7 +169,7 @@ class SchedulerService {
             const dbName = process.env.DB_NAME
             const dbUser = process.env.DB_USER
             const dbPass = process.env.DB_PASS
-            const dbHost = process.env.DB_HOST || 'localhost'
+            const dbHost = process.env.DB_HOST
             const dbPort = process.env.DB_PORT || 3306
 
             if (!dbName || !dbUser) { throw new Error('Variables de entorno de base de datos no configuradas') }

@@ -81,10 +81,10 @@ const PermissionManagement = () => {
     const handleSavePermission = async (permissionData) => {
         try {
             if (editingPermission) {
-                await axios.put(`http://localhost:3000/permissions/${editingPermission.id}`, permissionData)
+                await axios.put(`/permissions/${editingPermission.id}`, permissionData)
                 showSnackbar('Permiso actualizado correctamente')
             } else {
-                await axios.post('http://localhost:3000/permissions', permissionData)
+                await axios.post('/permissions', permissionData)
                 showSnackbar('Permiso creado correctamente')
             }
 
@@ -109,7 +109,7 @@ const PermissionManagement = () => {
         setConfirmDialog({ open: false, permission: null, message: '' })
 
         try {
-            await axios.delete(`http://localhost:3000/permissions/${permission.id}`)
+            await axios.delete(`/permissions/${permission.id}`)
             showSnackbar('Permiso eliminado correctamente')
             fetchPermissions()
 

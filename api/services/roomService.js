@@ -29,7 +29,7 @@ const getAllRoomsGroupedByType = async () => {   //Obtener todas las habitacione
         beds: room.beds,
         amenities: JSON.parse(room.amenities || '[]'),
         image: room.images && room.images.startsWith('/')
-          ? `${process.env.BACKEND_URL || 'http://localhost:3000'}${room.images}`
+          ? `${process.env.BACKEND_URL}`
           : room.images
       })
     })
@@ -77,7 +77,7 @@ const getRoomById = async (roomId) => {  //Obtener habitación por nombre (slug)
       beds: room.beds,
       amenities: JSON.parse(room.amenities || '[]'),
       image: room.images && room.images.startsWith('/')
-          ? `${process.env.BACKEND_URL || 'http://localhost:3000'}${room.images}`
+          ? `${process.env.BACKEND_URL}`
           : room.images,
       state: ROOM_STATE_LABELS[room.roomStateId] || 'Desconocido',
       roomStateId: room.roomStateId
@@ -113,7 +113,7 @@ const getAllRoomsForAdmin = async (filters = {}) => {   //Buscar habitaciones co
       beds: room.beds,
       amenities: JSON.parse(room.amenities || '[]'),
       image: room.images && room.images.startsWith('/')
-        ? `${process.env.BACKEND_URL || 'http://localhost:3000'}${room.images}`
+        ? `${process.env.BACKEND_URL}`
         : room.images,
       state: ROOM_STATE_LABELS[room.roomStateId] || 'Desconocido',
       roomStateId: room.roomStateId,
@@ -159,7 +159,7 @@ const createRoom = async (roomData, userId) => {  //Crear habitación
       beds: room.beds,
       amenities: JSON.parse(room.amenities || '[]'),
       image: room.images && room.images.startsWith('/')
-        ? `${process.env.BACKEND_URL || 'http://localhost:3000'}${room.images}`
+        ? `${process.env.BACKEND_URL}`
         : room.images,
       state: ROOM_STATE_LABELS[room.roomStateId] || 'Disponible',
       roomStateId: room.roomStateId
@@ -227,7 +227,7 @@ const updateRoom = async (roomId, roomData, userId) => {   //Actualizar datos de
       beds: room.beds,
       amenities: JSON.parse(room.amenities || '[]'),
       image: room.images && room.images.startsWith('/')
-        ? `${process.env.BACKEND_URL || 'http://localhost:3000'}${room.images}`
+        ? `${process.env.BACKEND_URL}`
         : room.images,
       state: ROOM_STATE_LABELS[room.roomStateId] || 'Desconocido',
       roomStateId: room.roomStateId
@@ -277,7 +277,7 @@ const deleteRoom = async (roomId, userId) => {   //Marcar habitación como fuera
       beds: room.beds,
       amenities: JSON.parse(room.amenities || '[]'),
       image: room.images && room.images.startsWith('/')
-        ? `${process.env.BACKEND_URL || 'http://localhost:3000'}${room.images}`
+        ? `${process.env.BACKEND_URL}`
         : room.images,
       state: ROOM_STATE_LABELS[room.roomStateId] || 'Desconocido',
       roomStateId: room.roomStateId

@@ -47,11 +47,11 @@ export const REVIEWS = [
 
 // ----------------------- Rooms -------------------------------------------
 export const ROOMS = [
-  { title: 'Habitación Estándar', description: 'Habitación económica perfecta para viajeros y parejas', image: 'http://localhost:3000/uploads/rooms/estandar/101.jpg', price: '$69 - $89', features: ['WiFi Gratis', 'Smart TV', 'Aire Acondicionado'] },
-  { title: 'Habitación Deluxe', description: 'Confort premium con vistas parciales al océano', image: 'http://localhost:3000/uploads/rooms/deluxe/201.jpg', price: '$129 - $179', features: ['WiFi Gratis', 'Smart TV', 'Aire Acondicionado', 'Minibar'] },
-  { title: 'Suite Ejecutiva', description: 'Espacio de trabajo integrado con vistas panorámicas', image: 'http://localhost:3000/uploads/rooms/ejecutiva/301.jpg', price: '$189 - $239', features: ['WiFi Gratis', 'Smart TV', 'Aire Acondicionado', 'Escritorio de Trabajo', 'Balcón'] },
-  { title: 'Habitación Familiar', description: 'Diseñada para familias con niños pequeños', image: 'http://localhost:3000/uploads/rooms/familiar/401.jpg', price: '$169 - $249', features: ['WiFi Gratis', 'Smart TV', 'Aire Acondicionado', 'Camas Adicionales', 'Amigable para Niños'] },
-  { title: 'Suite Presidential', description: 'La máxima experiencia de lujo con vistas de 360°', image: 'http://localhost:3000/uploads/rooms/presidencial/501.jpg', price: '$399 - $799', features: ['WiFi Gratis', 'Smart TV', 'Aire Acondicionado', 'Jacuzzi', 'Balcón', 'Servicio de Mayordomo'] }
+  { title: 'Habitación Estándar', description: 'Habitación económica perfecta para viajeros y parejas', image: '/uploads/rooms/estandar/101.jpg', price: '$69 - $89', features: ['WiFi Gratis', 'Smart TV', 'Aire Acondicionado'] },
+  { title: 'Habitación Deluxe', description: 'Confort premium con vistas parciales al océano', image: '/uploads/rooms/deluxe/201.jpg', price: '$129 - $179', features: ['WiFi Gratis', 'Smart TV', 'Aire Acondicionado', 'Minibar'] },
+  { title: 'Suite Ejecutiva', description: 'Espacio de trabajo integrado con vistas panorámicas', image: '/uploads/rooms/ejecutiva/301.jpg', price: '$189 - $239', features: ['WiFi Gratis', 'Smart TV', 'Aire Acondicionado', 'Escritorio de Trabajo', 'Balcón'] },
+  { title: 'Habitación Familiar', description: 'Diseñada para familias con niños pequeños', image: '/uploads/rooms/familiar/401.jpg', price: '$169 - $249', features: ['WiFi Gratis', 'Smart TV', 'Aire Acondicionado', 'Camas Adicionales', 'Amigable para Niños'] },
+  { title: 'Suite Presidential', description: 'La máxima experiencia de lujo con vistas de 360°', image: '/uploads/rooms/presidencial/501.jpg', price: '$399 - $799', features: ['WiFi Gratis', 'Smart TV', 'Aire Acondicionado', 'Jacuzzi', 'Balcón', 'Servicio de Mayordomo'] }
 ]
 
 // ----------------------- Room States -------------------------------------------
