@@ -22,7 +22,7 @@ const PrivateRoute = ({ children, allowRoles }) => {   //Recibe componentes hijo
             setSnackbarMessage('Acceso denegado: no hay token')
             setAccessDenied(true)
 
-            axios.post('http://localhost:3000/log/access-denied', {
+            axios.post('/log/access-denied', {
                 userId: null,
                 attemptedRole: 'Desconocido',
                 path: window.location.pathname
@@ -54,7 +54,7 @@ const PrivateRoute = ({ children, allowRoles }) => {   //Recibe componentes hijo
                 setSnackbarMessage('Acceso denegado: rol no autorizado')
                 setAccessDenied(true)
 
-                axios.post('http://localhost:3000/log/access-denied', {
+                axios.post('http:///log/access-denied', {
                     userId: decoded.id || null,
                     attemptedRole: decoded.primaryRole || 'Desconocido',
                     path: window.location.pathname
@@ -70,7 +70,7 @@ const PrivateRoute = ({ children, allowRoles }) => {   //Recibe componentes hijo
             setSnackbarMessage('Acceso denegado: token inválido')
             setAccessDenied(true)
 
-            axios.post('http://localhost:3000/log/access-denied', {
+            axios.post('/log/access-denied', {
                 userId: null,
                 attemptedRole: 'Desconocido',
                 path: window.location.pathname
