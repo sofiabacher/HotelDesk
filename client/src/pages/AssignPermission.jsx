@@ -19,9 +19,9 @@ const AssignPermission = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/users/profile')
+                const response = await axios.get('/users/profile')
                 const user = response.data?.data?.user
-                if (user?.photo) setAvatarUrl(`http://localhost:3000${user.photo}`)
+                if (user?.photo) setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
             } catch (err) {
                 console.error('Error al obtener la foto de perfil:', err)
             }
@@ -56,9 +56,9 @@ const AssignPermission = () => {
             setLoading(true)
             try {
                 const [usersRes, rolesRes, permissionsRes] = await Promise.all([
-                    axios.get('http://localhost:3000/roles/users'),
-                    axios.get('http://localhost:3000/roles'),
-                    axios.get('http://localhost:3000/permissions')
+                    axios.get('/roles/users'),
+                    axios.get('/roles'),
+                    axios.get('/permissions')
                 ])
 
                 setUsers(usersRes.data.data || [])
@@ -138,24 +138,24 @@ const AssignPermission = () => {
             for (const permissionId of selectedPermissions) {
                 if (isAssignMode) {
                     if (assignmentType === 'role') {
-                        await axios.post('http://localhost:3000/permissions/assign-to-role', {
+                        await axios.post('/permissions/assign-to-role', {
                             roleId: selectedRole,
                             permissionId
                         })
                     } else {
-                        await axios.post('http://localhost:3000/permissions/assign-to-user', {
+                        await axios.post('/permissions/assign-to-user', {
                             userId: selectedUser,
                             permissionId
                         })
                     }
                 } else {
                     if (assignmentType === 'role') {
-                        await axios.post('http://localhost:3000/permissions/remove-from-role', {
+                        await axios.post('/permissions/remove-from-role', {
                             roleId: selectedRole,
                             permissionId
                         })
                     } else {
-                        await axios.post('http://localhost:3000/permissions/remove-from-user', {
+                        await axios.post('/permissions/remove-from-user', {
                             userId: selectedUser,
                             permissionId
                         })
