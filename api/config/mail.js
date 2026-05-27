@@ -8,6 +8,17 @@ const transporter = nodeMalier.createTransport({
     auth: {
         user: email.user,
         pass: email.password
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+})
+
+transporter.verify(function(error, success) {
+    if (error) {
+        console.log("SMTP ERROR:", error)
+    } else {
+        console.log("SMTP READY")
     }
 })
 
