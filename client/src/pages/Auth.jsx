@@ -47,7 +47,7 @@ const LoginSignUp = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:3000/auth/recover-password', { email })
+            const response = await axios.post('/auth/recover-password', { email })
             showSnackbar(response.data.message, "success")
             handleChangeAction("Iniciar sesion")
 
