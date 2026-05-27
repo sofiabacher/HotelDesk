@@ -48,7 +48,7 @@ const PaymentDialog = ({ open, onClose, reservation, onSuccess, showSnackbar }) 
                 throw new Error('No se encontró la información de la reserva')
             }
 
-            const response = await axios.post('http://localhost:3000/payment/process', { bookingId: reservation.id })
+            const response = await axios.post('/payment/process', { bookingId: reservation.id })
 
             if (showSnackbar) {
                 showSnackbar('¡Pago procesado exitosamente! El comprobante estará disponible en Mis Reservas.', 'success')
