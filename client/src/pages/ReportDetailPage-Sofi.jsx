@@ -70,9 +70,9 @@ const ReportDetailPage = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/users/profile')
+                const response = await axios.get('/users/profile')
                 const user = response.data?.data?.user
-                if (user?.photo) setAvatarUrl(`http://localhost:3000${user.photo}`)
+                if (user?.photo) setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
             } catch (err) {
                 console.error('Error al obtener la foto de perfil:', err)
             }
@@ -103,7 +103,7 @@ const ReportDetailPage = () => {
                 params.append('userType', filters.userType)
             }
 
-            const response = await axios.get(`http://localhost:3000/admin/reports/${reportId}?${params.toString()}`)
+            const response = await axios.get(`/admin/reports/${reportId}?${params.toString()}`)
 
             if (response.data.success && response.data.data) {
                 const reportResult = response.data.data
@@ -160,7 +160,7 @@ const ReportDetailPage = () => {
                 params.append('userType', filters.userType)
             }
 
-            const response = await axios.get(`http://localhost:3000/admin/reports/${reportId}/export?${params.toString()}`, { responseType: 'blob' } )
+            const response = await axios.get(`/admin/reports/${reportId}/export?${params.toString()}`, { responseType: 'blob' } )
             
             const blob = new Blob([response.data], { type: 'text/plain;charset=utf-8' })
             const url = window.URL.createObjectURL(blob)
@@ -189,7 +189,7 @@ const ReportDetailPage = () => {
 
     const handleRepairTable = async (tableName) => {
         try {
-            const response = await axios.post(`http://localhost:3000/integrity/repair/${tableName}`)
+            const response = await axios.post(`/integrity/repair/${tableName}`)
 
             if (response.data.success) {
                 showSnackbar(`Integridad de la tabla '${tableName}' reparada exitosamente`, 'success')
@@ -212,7 +212,7 @@ const ReportDetailPage = () => {
     const handleRepairAllTables = async () => {
         try {
             setRepairingAll(true)
-            const response = await axios.post('http://localhost:3000/integrity/recalculate-all')
+            const response = await axios.post('/integrity/recalculate-all')
 
             if (response.data.success) {
                 const successful = response.data.data.filter(r => r.success).length
