@@ -31,7 +31,7 @@ const NavBar = ({ avatarUrl }) => {
 
     const handleLogout = async () => {
         try {
-            await axios.post('http://localhost:3000/log/logout', { userId: decoded.id })
+            await axios.post('/log/logout', { userId: decoded.id })
         } catch (error) {
             console.error("Error al registrar logout:", error)
         } finally {
