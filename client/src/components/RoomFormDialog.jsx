@@ -23,11 +23,11 @@ const RoomFormDialog = ({ open, onClose, onSubmit, formData, onInputChange, onAm
 
         try {
             setUploading(true)
-            const response = await axios.post('http://localhost:3000/rooms/upload-image', formData_upload, {
+            const response = await axios.post('/rooms/upload-image', formData_upload, {
                 headers: { "Content-Type": "multipart/form-data" }
             })
 
-            const finalUrl = `http://localhost:3000${response.data.url.imageUrl}`
+            const finalUrl = `https://hoteldesk.onrender.com${response.data.url.imageUrl}`
             onInputChange('images', finalUrl)
             showSnackbar("Imagen cargada exitosamente", "success")
 
