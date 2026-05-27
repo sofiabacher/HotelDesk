@@ -20,9 +20,9 @@ const ReceptionistCheckOut = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/users/profile')
+                const response = await axios.get('/users/profile')
                 const user = response.data?.data?.user
-                if (user?.photo) setAvatarUrl(`http://localhost:3000${user.photo}`)
+                if (user?.photo) setAvatarUrl(`https://hoteldesk.onrender.com${user.photo}`)
             } catch (err) {
                 console.error('Error al obtener la foto de perfil:', err)
             }
@@ -42,7 +42,7 @@ const ReceptionistCheckOut = () => {
     const fetchCheckOuts = async () => {
         try {
             setLoading(true)
-            const response = await axios.get('http://localhost:3000/receptionist/checkouts')
+            const response = await axios.get('/receptionist/checkouts')
 
             if (response.data.success) {
                 setCheckOuts(response.data.data.checkOuts)
@@ -104,7 +104,7 @@ const ReceptionistCheckOut = () => {
 
     const handleCheckOut = async (reservation) => {
         try {
-            const response = await axios.post(`http://localhost:3000/receptionist/checkout/${reservation.bookingId}`, {
+            const response = await axios.post(`/receptionist/checkout/${reservation.bookingId}`, {
                 notes: 'Check-out procesado desde el panel de recepción'
             })
 
