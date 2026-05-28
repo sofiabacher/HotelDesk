@@ -9,7 +9,7 @@ El proyecto cuenta con autenticación segura, control de acceso mediante JWT, en
 
 ## 🔑 Usuario demo
 
-Para facilitar la evaluación del sistema sin necesidad de registrarse ni depender de correos de activación:
+Para facilitar la evaluación del sistema sin necesidad de registrarse ni depender de correos de activación utilizar las siguientes credenciales para inciar sesión:
 
 **Email:** demo@hoteldesk.com  
 **Password:** 123456
