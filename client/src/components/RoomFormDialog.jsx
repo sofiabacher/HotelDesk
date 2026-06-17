@@ -26,9 +26,8 @@ const RoomFormDialog = ({ open, onClose, onSubmit, formData, onInputChange, onAm
             const response = await axios.post('/rooms/upload-image', formData_upload, {
                 headers: { "Content-Type": "multipart/form-data" }
             })
-
-            const finalUrl = `https://hoteldesk.onrender.com${response.data.url.imageUrl}`
-            onInputChange('images', finalUrl)
+            
+            onInputChange('images', response.data.url.imageUrl)
             showSnackbar("Imagen cargada exitosamente", "success")
 
         } catch (error) {
@@ -178,7 +177,7 @@ const RoomFormDialog = ({ open, onClose, onSubmit, formData, onInputChange, onAm
                         </Box>
                         {formData.images && (
                             <Box sx={{ mt: 2 }}>
-                                <img src={formData.images} alt="Vista previa" style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: 8 }} />
+                                <img src={`${import.meta.env.VITE_API_URL}${formData.images}`} alt="Vista previa" style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: 8 }} />
                             </Box>
                         )}
                     </Grid>
