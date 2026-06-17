@@ -180,7 +180,7 @@ const UserProfile = () => {
         }
     }
 
-    const handlePhotoChange = (url) => { setProfile((prev) => ({ ...prev, photo: url })) }
+    const handlePhotoChange = (url) => { setProfile((prev) => ({ ...prev, photo: `${import.meta.env.VITE_API_URL}${url}` })) }
 
     const handleRoleSelect = async (roleName) => {
         try {
