@@ -207,7 +207,7 @@ const Booking = () => {
                                 )}
 
                                 {!roomsLoading && !roomsError && rooms.map(room => {
-                                    const imageUrl = `https://hoteldesk.onrender.com${room.images}`
+                                    const imageUrl = room.images?.startsWith('http') ? room.images : `https://hoteldesk.onrender.com${room.images}`
                                     const capacityDiff = room.capacity - guests
                                     const isExactMatch = capacityDiff === 0
                                     const hasExtraCapacity = capacityDiff > 0
