@@ -177,7 +177,7 @@ const RoomFormDialog = ({ open, onClose, onSubmit, formData, onInputChange, onAm
                         </Box>
                         {formData.images && (
                             <Box sx={{ mt: 2 }}>
-                                <img src={`${import.meta.env.VITE_API_URL}${formData.images}`} alt="Vista previa" style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: 8 }} />
+                                <img src={`https://hoteldesk.onrender.com${formData.images}`} alt="Vista previa" style={{ maxWidth: '200px', maxHeight: '150px', objectFit: 'cover', borderRadius: 8 }} />
                             </Box>
                         )}
                     </Grid>
