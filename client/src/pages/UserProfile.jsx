@@ -180,7 +180,7 @@ const UserProfile = () => {
         }
     }
 
-    const handlePhotoChange = (url) => { setProfile((prev) => ({ ...prev, photo: `${import.meta.env.VITE_API_URL}${url}` })) }
+    const handlePhotoChange = (url) => { setProfile((prev) => ({ ...prev, photo: `https://hoteldesk.onrender.com${url}` })) }
 
     const handleRoleSelect = async (roleName) => {
         try {
