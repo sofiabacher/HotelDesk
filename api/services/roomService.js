@@ -137,7 +137,7 @@ const createRoom = async (roomData, userId) => {  //Crear habitación
       size: roomData.size || '',
       beds: roomData.beds || '',
       amenities: JSON.stringify(roomData.amenities || []),
-      images: roomData.images || '',
+      images: roomData.images ? roomData.images.replace('https://hoteldesk.onrender.com', '') : '',
       roomStateId: roomData.roomStateId || 1
     })
 
@@ -194,7 +194,7 @@ const updateRoom = async (roomId, roomData, userId) => {   //Actualizar datos de
       size: roomData.size !== undefined ? roomData.size : room.size,
       beds: roomData.beds !== undefined ? roomData.beds : room.beds,
       amenities: roomData.amenities !== undefined ? JSON.stringify(roomData.amenities) : room.amenities,
-      images: roomData.images !== undefined ? roomData.images : room.images,
+      images: roomData.images !== undefined ? roomData.images.replace('https://hoteldesk.onrender.com', '') : room.images,
       roomStateId: roomData.roomStateId !== undefined ? roomData.roomStateId : room.roomStateId
     })
 
