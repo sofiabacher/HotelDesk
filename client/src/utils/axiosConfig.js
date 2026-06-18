@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // Configurar axios global directamente
 axios.defaults.timeout = 10000
-axios.defaults.baseURL = import.meta.env.VITE_API_URL
+axios.defaults.baseURL = 'https://hoteldesk.onrender.com'
 axios.defaults.headers.common['Content-Type'] = 'application/json'
 
 // Función centralizada para limpiar sesión
