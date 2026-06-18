@@ -29,7 +29,11 @@ createDemoUser()
 const schedulerService = require('./services/schedulerService')
 
 //Para que el navegador pueda acceder a la imagen mediante URL
-server.use('/uploads', express.static(path.join(__dirname, 'uploads')))
+server.use('/uploads', (req, res, next) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin')
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    next()
+}, express.static(path.join(__dirname, 'uploads')))
 
 //Middlewares
 server.use(express.json())
