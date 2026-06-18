@@ -51,7 +51,7 @@ const RoomDetail = () => {
             title: foundRoom.name || 'Habitación',
             description: foundRoom.description || 'Habitación cómoda y moderna',
             price: foundRoom.price ? `$${foundRoom.price}` : '$100',
-            images: foundRoom.image ? [foundRoom.image] : [`/uploads/rooms/default.jpg`],
+            images: foundRoom.image ? [`https://hoteldesk.onrender.com${foundRoom.image}`] : [`https://hoteldesk.onrender.com/uploads/rooms/default.jpg`],
             capacity: foundRoom.capacity || 2,
             size: foundRoom.size || '30m²',
             bedType: foundRoom.beds || 'Cama King Size',
